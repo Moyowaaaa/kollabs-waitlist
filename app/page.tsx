@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import Head from "next/head";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
@@ -182,114 +183,206 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      className="min-h-screen h-screen overflow-hidden max-h-screen bg-[white] flex items-center justify-center relative"
-      ref={pageRef}
-      style={{ willChange: "opacity" }}
-    >
-      <div className="absolute w-full h-full left-0 top-0 flex justify-center pointer-events-none">
-        <div className="relative left-0 top-0 w-full max-w-[90rem]">
-          <div
-            ref={handRef}
-            className="absolute left-0 w-[20rem] h-[20rem] top-18"
-            style={{ transform: "translateZ(0)" }}
-          >
-            <Image src={"/images/hand.svg"} alt="" fill />
-          </div>
+    <>
+      <Head>
+        <title>Kolabs | Waitlist</title>
+        <meta
+          name="description"
+          content=" Where Creative Ideas Find Their Team"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <link
+          rel="icon"
+          href="https://tge-data-web.nyc3.cdn.digitaloceanspaces.com/contextdata/images/favicon.ico"
+        />
+        <link
+          rel="icon"
+          href="https://tge-data-web.nyc3.cdn.digitaloceanspaces.com/contextdata/images/favicon.ico"
+          type="image/png"
+          sizes="any"
+        /> */}
+        <link
+          rel="preload"
+          href="/fonts/GrandHotel-Regular.ttf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/Sora-Light.ttf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
 
-          <div
-            ref={desktopRef}
-            className="absolute right-0 w-[20rem] h-[20rem] top-18"
-            style={{ transform: "translateZ(0)" }}
-          >
-            <Image src={"/images/desktop.svg"} alt="" fill />
-          </div>
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://kollabs-waitlist.vercel.app/"
+        />
+        <meta property="og:title" content="Kolabs | Waitlist" />
+        <meta
+          property="og:description"
+          content="Where Creative Ideas Find Their Team"
+        />
+        <meta
+          property="og:image"
+          content="https://kollabs-waitlist.vercel.app/images/logo.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Kolabs logo with the text 'Where Creative Ideas Find Their Team'"
+        />
 
-          <div
-            ref={laptopRef}
-            className="absolute right-0 w-[20rem] bottom-0 h-[20rem]"
-            style={{ transform: "translateZ(0)" }}
-          >
-            <Image src={"/images/laptop.svg"} alt="" fill />
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:url"
+          content="https://kollabs-waitlist.vercel.app/"
+        />
+        <meta name="twitter:title" content="Kolabs | Waitlist" />
+        <meta
+          name="twitter:description"
+          content="Where Creative Ideas Find Their Team"
+        />
+        <meta
+          name="twitter:image"
+          content="https://kollabs-waitlist.vercel.app  /images/logo.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Kolabs logo with the text 'Where Creative Ideas Find Their Team'"
+        />
+      </Head>
+
+      <div
+        className="min-h-screen h-screen overflow-hidden max-h-screen bg-[white] flex items-center justify-center relative"
+        ref={pageRef}
+        style={{ willChange: "opacity" }}
+      >
+        <div className="absolute w-full h-full left-0 top-0 flex justify-center pointer-events-none">
+          <div className="relative left-0 top-0 w-full max-w-[90rem]">
+            <div
+              ref={handRef}
+              className="absolute left-0 w-[20rem] h-[20rem] top-18"
+              style={{ transform: "translateZ(0)" }}
+            >
+              <Image src={"/images/hand.svg"} alt="" fill />
+            </div>
+
+            <div
+              ref={desktopRef}
+              className="absolute right-0 w-[20rem] h-[20rem] top-18"
+              style={{ transform: "translateZ(0)" }}
+            >
+              <Image src={"/images/desktop.svg"} alt="" fill />
+            </div>
+
+            <div
+              ref={laptopRef}
+              className="absolute right-0 w-[20rem] bottom-0 h-[20rem]"
+              style={{ transform: "translateZ(0)" }}
+            >
+              <Image src={"/images/laptop.svg"} alt="" fill />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute left-0 top-0 w-full h-screen pointer-events-none">
-        <div className="mx-auto h-10/12">
-          <Image src={"/images/grid.svg"} alt="" fill />
+        <div className="absolute left-0 top-0 w-full h-screen pointer-events-none">
+          <div className="mx-auto h-10/12">
+            <Image src={"/images/grid.svg"} alt="" fill />
+          </div>
         </div>
-      </div>
 
-      <div className="w-full max-w-full mx-auto absolute top-2 flex items-center justify-center text-[#211E1E] font-semibold text-[0.875rem] font-sora">
-        Logo
-      </div>
+        <div className="w-full max-w-full mx-auto absolute top-2 flex items-center justify-center text-[#211E1E] font-semibold text-[0.875rem] font-sora">
+          Logo
+        </div>
 
-      <div className="flex flex-col gap-6 w-max h-max items-center">
-        <div className="flex flex-col w-full items-center gap-2">
-          <h1
-            ref={heroTitleRef}
-            className="font-sora font-bold text-[3rem] h-max max-h-max"
-            style={{ transform: "translateZ(0)" }}
-          >
-            Where Creative Ideas
-          </h1>
+        <div className="flex flex-col gap-6 w-max h-max items-center">
+          <div className="flex flex-col w-full items-center gap-2">
+            <h1
+              ref={heroTitleRef}
+              className="font-sora font-bold text-[3rem] h-max max-h-max"
+              style={{ transform: "translateZ(0)" }}
+            >
+              Where Creative Ideas
+            </h1>
+            <p
+              ref={heroSubtitleRef}
+              className="font-grand-hotel font-normal text-[3rem] text-[#FF8D28] leading-[1.25rem]"
+              style={{ transform: "translateZ(0)" }}
+            >
+              Find Their Team.
+            </p>
+          </div>
+
           <p
-            ref={heroSubtitleRef}
-            className="font-grand-hotel font-normal text-[3rem] text-[#FF8D28] leading-[1.25rem]"
+            ref={heroDescRef}
+            className="text-[#808080] max-w-[30rem] mx-auto"
             style={{ transform: "translateZ(0)" }}
           >
-            Find Their Team.
-          </p>
-        </div>
-
-        <p
-          ref={heroDescRef}
-          className="text-[#808080] max-w-[30rem] mx-auto"
-          style={{ transform: "translateZ(0)" }}
-        >
-          Connect with writers, artists, developers, and designers to bring your
-          ideas to life — no funding, no barriers, just collaboration.
-        </p>
-
-        <div
-          ref={heroFormRef}
-          className="px-4 py-6 w-full border-2 bg-white z-10 border-[#E9E9E9E9] flex flex-col gap-4 rounded-[1.875rem] shadow-lg"
-          style={{ transform: "translateZ(0)" }}
-        >
-          <h1 className="font-semibold text-[1.125rem] leading-[1.75rem] text-[#211E1E]">
-            Join the waitlist
-          </h1>
-          <p className="text-[#808080] leading-[0.625rem]">
-            Sign up to be the first to use KoLab
+            Connect with writers, artists, developers, and designers to bring
+            your ideas to life — no funding, no barriers, just collaboration.
           </p>
 
-          <div className="flex cursor-pointer items-center bg-[#E6E4FF] rounded-full p-1 mt-2 gap-2 z-20">
-            <Input
-              type="email"
-              placeholder="Enter your email address"
-              className="flex-1 border-0 outline-none focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none"
-            />
-            <Button className="bg-[#6366F1] text-white px-6 py-2 rounded-full font-medium hover:bg-[#5855EB] transition-colors min-h-[3rem] flex items-center justify-center">
-              Join us →
-            </Button>
+          <div
+            ref={heroFormRef}
+            className="px-4 py-6 w-full border-2 bg-white z-10 border-[#E9E9E9E9] flex flex-col gap-4 rounded-[1.875rem] shadow-lg"
+            style={{ transform: "translateZ(0)" }}
+          >
+            <h1 className="font-semibold text-[1.125rem] leading-[1.75rem] text-[#211E1E]">
+              Join the waitlist
+            </h1>
+            <p className="text-[#808080] leading-[0.625rem]">
+              Sign up to be the first to use KoLab
+            </p>
+
+            <div className="flex cursor-pointer items-center bg-[#E6E4FF] rounded-full p-1 mt-2 gap-2 z-20">
+              <Input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 border-0 outline-none focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none"
+              />
+              <Button className="bg-[#6366F1] text-white px-6 py-2 rounded-full font-medium hover:bg-[#5855EB] transition-colors min-h-[3rem] flex items-center justify-center">
+                Join us →
+              </Button>
+            </div>
+          </div>
+
+          <div
+            ref={heroSocialRef}
+            className="flex gap-4 items-center"
+            style={{ transform: "translateZ(0)" }}
+          >
+            <p className="font-sora font-light">Follow us</p>
+            <Image src={"/images/Xicon.svg"} alt="" width={16} height={16} />
+            <Image src={"/images/linkedin.svg"} alt="" width={16} height={16} />
           </div>
         </div>
 
-        <div
-          ref={heroSocialRef}
-          className="flex gap-4 items-center"
-          style={{ transform: "translateZ(0)" }}
-        >
-          <p className="font-sora font-light">Follow us</p>
-          <Image src={"/images/Xicon.svg"} alt="" width={16} height={16} />
-          <Image src={"/images/linkedin.svg"} alt="" width={16} height={16} />
+        <div className="w-full max-w-full mx-auto absolute bottom-2 flex items-center justify-center text-[#211E1E] font-semibold text-[0.875rem] font-sora">
+          &copy; KoLabs {currentYear}
         </div>
       </div>
-
-      <div className="w-full max-w-full mx-auto absolute bottom-2 flex items-center justify-center text-[#211E1E] font-semibold text-[0.875rem] font-sora">
-        &copy; KoLabs {currentYear}
-      </div>
-    </div>
+    </>
   );
 }
