@@ -280,10 +280,10 @@ export default function Home() {
         style={{ willChange: "opacity" }}
       >
         <div className="absolute w-full h-full left-0 top-0 flex justify-center pointer-events-none">
-          <div className="relative left-0 top-0 w-full max-w-[90rem]">
+          <div className="relative left-0 top-0 w-full md:max-w-[90rem]">
             <div
               ref={handRef}
-              className="absolute left-0 w-[20rem] h-[20rem] top-18"
+              className="hidden md:flex absolute left-0 w-[12rem] h-[12rem] md:w-[20rem] md:h-[20rem] top-18"
               style={{ transform: "translateZ(0)" }}
             >
               <Image src={"/images/hand.svg"} alt="" fill />
@@ -291,7 +291,7 @@ export default function Home() {
 
             <div
               ref={desktopRef}
-              className="absolute right-0 w-[20rem] h-[20rem] top-18"
+              className="absolute hidden md:flex right-0 w-[12rem] h-[12rem] md:w-[20rem] md:h-[20rem] top-18"
               style={{ transform: "translateZ(0)" }}
             >
               <Image src={"/images/desktop.svg"} alt="" fill />
@@ -299,7 +299,7 @@ export default function Home() {
 
             <div
               ref={laptopRef}
-              className="absolute right-0 w-[20rem] bottom-0 h-[20rem]"
+              className="absolute hidden md:flex right-0 w-[12rem] h-[12rem] md:w-[20rem] md:h-[20rem] bottom-0 "
               style={{ transform: "translateZ(0)" }}
             >
               <Image src={"/images/laptop.svg"} alt="" fill />
@@ -321,14 +321,14 @@ export default function Home() {
           <div className="flex flex-col w-full items-center gap-2">
             <h1
               ref={heroTitleRef}
-              className="font-sora font-bold text-[3rem] h-max max-h-max"
+              className="font-sora font-bold text-[1.5rem] md:text-[3rem] h-max max-h-max"
               style={{ transform: "translateZ(0)" }}
             >
               Where Creative Ideas
             </h1>
             <p
               ref={heroSubtitleRef}
-              className="font-grand-hotel font-normal text-[3rem] text-[#FF8D28] leading-[1.25rem]"
+              className="font-grand-hotel font-normal text-[1.5rem] md:text-[3rem] text-[#FF8D28] leading-[1.25rem]"
               style={{ transform: "translateZ(0)" }}
             >
               Find Their Team.
@@ -337,7 +337,7 @@ export default function Home() {
 
           <p
             ref={heroDescRef}
-            className="text-[#808080] max-w-[30rem] mx-auto"
+            className="text-[#808080] text-center md:text-left max-w-[30rem] mx-auto"
             style={{ transform: "translateZ(0)" }}
           >
             Connect with writers, artists, developers, and designers to bring
@@ -346,8 +346,11 @@ export default function Home() {
 
           <div
             ref={heroFormRef}
-            className="px-4 py-6 w-full border-2 bg-white z-10 border-[#E9E9E9E9] flex flex-col gap-4 rounded-[1.875rem] shadow-lg"
-            style={{ transform: "translateZ(0)" }}
+            className="px-4 py-6 w-11/12 md:w-full border-2 bg-white z-10 border-[#E9E9E9E9] flex flex-col gap-4 rounded-[1.875rem]"
+            style={{
+              transform: "translateZ(0)",
+              boxShadow: "4px 4px 0px 0px rgba(97, 85, 245, 0.1)",
+            }}
           >
             <h1 className="font-semibold text-[1.125rem] leading-[1.75rem] text-[#211E1E]">
               Join the waitlist
@@ -363,7 +366,7 @@ export default function Home() {
                 className="flex-1 border-0 outline-none focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none"
               />
               <Button className="bg-[#6366F1] text-white px-6 py-2 rounded-full font-medium hover:bg-[#5855EB] transition-colors min-h-[3rem] flex items-center justify-center">
-                Join us →
+                <span className="hidden md:flex">Join us</span> →
               </Button>
             </div>
           </div>
