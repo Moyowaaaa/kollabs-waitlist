@@ -164,3 +164,49 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes borderMovement {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.purple-border {
+  position: relative;
+  background: linear-gradient(#fff, #fff) padding-box,
+    /* linear-gradient(
+        var(--gradient-angle, 0deg),
+        #6155f51a 0%,
+        #6155f51a 25%,
+        #6155f51a 50%,
+        #6155f51a 75%,
+        #6155f51a 100%
+      )
+      border-box; */
+      linear-gradient(
+        var(--gradient-angle, 0deg),
+        #6155f5 0%,
+        #e6e4ff 25%,
+        #e6e4ff 50%,
+        #6155f5 75%,
+        #e6e4ff 100%
+      )
+      border-box;
+  border: 2px solid transparent;
+  border-bottom-width: 0.5rem;
+  border-radius: 1.875rem;
+  background-size: 500% 200%;
+  animation: borderMovement 5s ease-in-out infinite;
+}
