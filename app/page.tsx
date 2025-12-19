@@ -357,7 +357,7 @@ export default function Home() {
           </div>
         </div>
 
-        <p className="z-10 text-[18rem] whitespace-nowrap inline-block font-bold text-white opacity-[5%] w-full  absolute bottom-6 -left-16">
+        <p className="z-5 text-[18rem] whitespace-nowrap inline-block font-bold text-white opacity-[5%] w-full  absolute bottom-6 -left-16">
           Coming Soon
         </p>
 
