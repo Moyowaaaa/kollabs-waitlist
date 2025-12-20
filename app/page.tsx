@@ -3,9 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Head from "next/head";
+import api from "@/lib/api";
+import { toast } from "sonner";
+import { showToast } from "@/utils/toasts";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
@@ -18,6 +21,39 @@ export default function Home() {
   const handRef = useRef<HTMLDivElement | null>(null);
   const desktopRef = useRef<HTMLDivElement | null>(null);
   const laptopRef = useRef<HTMLDivElement | null>(null);
+
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!email) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      await api.post("/waitlist", { email });
+      showToast.success("You've been added to the waitlist!");
+      setEmail("");
+    } catch (error) {
+      const axiosError = error as {
+        response?: { data?: { message?: string } };
+      };
+      const message =
+        axiosError?.response?.data?.message ||
+        "Something went wrong. Please try again.";
+      showToast.error(message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useLayoutEffect(() => {
     const elements = [
@@ -349,10 +385,21 @@ export default function Home() {
             <Input
               type="email"
               placeholder="Enter your email address"
-              className="flex-1 border-0 outline-none focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none  text-white placeholder:text-gray-400"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 border-0 outline-none
+              bg-[none]
+              focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none  text-white placeholder:text-gray-400"
             />
-            <Button className="bg-[#6155F5] text-white px-6 py-2 rounded-full text-[1rem] font-medium hover:bg-[#5855EB] transition-colors min-h-[3rem] flex items-center justify-center">
-              <span className="hidden md:flex">Notify me</span> →
+            <Button
+              onClick={handleSubmit}
+              disabled={isLoading}
+              className="bg-[#6155F5] text-white px-6 py-2 rounded-full text-[1rem] font-medium hover:bg-[#5855EB] transition-colors min-h-[3rem] flex items-center justify-center disabled:opacity-50"
+            >
+              <span className="hidden md:flex">
+                {isLoading ? "Joining..." : "Notify me"}
+              </span>{" "}
+              {isLoading ? "" : "→"}
             </Button>
           </div>
         </div>
