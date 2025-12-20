@@ -328,7 +328,7 @@ export default function Home() {
 
           <p
             ref={heroDescRef}
-            className="text-[#D1D1D1] text-center md:text-left max-w-[30rem] mx-auto"
+            className="text-[#D1D1D1] text-center md:text-left max-w-[20rem] md:max-w-[30rem] mx-auto"
             style={{ transform: "translateZ(0)" }}
           >
             Connect with writers, artists, developers, and designers to bring
@@ -336,7 +336,7 @@ export default function Home() {
           </p>
 
           <div
-            className="flex cursor-pointer items-center rounded-full p-1 mt-2 gap-2 z-20 w-full"
+            className="flex cursor-pointer items-center rounded-full p-1 mt-2 gap-2 z-20 md:w-full"
             style={{
               background: "rgba(230, 228, 255, 0.1)",
               backdropFilter: "blur(20px)",
@@ -351,13 +351,18 @@ export default function Home() {
               placeholder="Enter your email address"
               className="flex-1 border-0 outline-none focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none  text-white placeholder:text-gray-400"
             />
-            <Button className="bg-[#6155F5] text-white px-6 py-2 rounded-full font-medium hover:bg-[#5855EB] transition-colors min-h-[3rem] flex items-center justify-center">
+            <Button className="bg-[#6155F5] text-white px-6 py-2 rounded-full text-[1rem] font-medium hover:bg-[#5855EB] transition-colors min-h-[3rem] flex items-center justify-center">
               <span className="hidden md:flex">Notify me</span> →
             </Button>
           </div>
         </div>
 
-        <p className="z-5 text-[18rem] whitespace-nowrap inline-block font-bold text-white opacity-[5%] w-full  absolute bottom-6 -left-16">
+        <p
+          className="z-5 text-[8rem] md:text-[18vw] whitespace-nowrap inline-block font-bold text-white opacity-[5%] w-full  absolute bottom-24 md:bottom-6
+        
+        -left-[20rem]
+        md:-left-16"
+        >
           Coming Soon
         </p>
 
