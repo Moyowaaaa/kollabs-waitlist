@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import Head from "next/head";
 import api from "@/lib/api";
 import { toast } from "sonner";
 import { showToast } from "@/utils/toasts";
@@ -220,95 +219,19 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Kolabs | Waitlist</title>
-        <meta
-          name="description"
-          content=" Where Creative Ideas Find Their Team"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* <link
-          rel="icon"
-          href="https://tge-data-web.nyc3.cdn.digitaloceanspaces.com/contextdata/images/favicon.ico"
-        />
-        <link
-          rel="icon"
-          href="https://tge-data-web.nyc3.cdn.digitaloceanspaces.com/contextdata/images/favicon.ico"
-          type="image/png"
-          sizes="any"
-        /> */}
-        <link
-          rel="preload"
-          href="/fonts/GrandHotel-Regular.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Sora-Light.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://kollabs-waitlist.vercel.app/"
-        />
-        <meta property="og:title" content="Kolabs | Waitlist" />
-        <meta
-          property="og:description"
-          content="Where Creative Ideas Find Their Team"
-        />
-        <meta
-          property="og:image"
-          content="https://kollabs-waitlist.vercel.app/images/logo.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Kolabs logo with the text 'Where Creative Ideas Find Their Team'"
-        />
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:url"
-          content="https://kollabs-waitlist.vercel.app/"
-        />
-        <meta name="twitter:title" content="Kolabs | Waitlist" />
-        <meta
-          name="twitter:description"
-          content="Where Creative Ideas Find Their Team"
-        />
-        <meta
-          name="twitter:image"
-          content="https://kollabs-waitlist.vercel.app  /images/logo.png"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Kolabs logo with the text 'Where Creative Ideas Find Their Team'"
-        />
-      </Head>
+      {/* Font preloads */}
+      <link
+        rel="preload"
+        href="/fonts/GrandHotel-Regular.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/Sora-Light.ttf"
+        as="font"
+        crossOrigin=""
+      />
 
       <div
         className="min-h-screen h-screen overflow-hidden max-h-screen bg-[#201f1d] flex flex-col items-center relative"
@@ -387,6 +310,7 @@ export default function Home() {
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               className="flex-1 border-0 outline-none
               bg-[none]
               focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none  text-white placeholder:text-gray-400"
