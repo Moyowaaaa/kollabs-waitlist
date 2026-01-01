@@ -312,8 +312,16 @@ export default function Home() {
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               className="flex-1 border-0 outline-none
-              bg-[none]
-              focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none  text-white placeholder:text-gray-400"
+              bg-transparent
+              text-white placeholder:text-gray-400
+              focus:ring-0 focus:border-0 active:ring-0 active:border-0 focus:outline-none shadow-none
+              [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-white! [&:-webkit-autofill]:shadow-none
+              autofill:bg-transparent autofill:text-white! autofill:shadow-none"
+              style={{
+                WebkitBoxShadow: "0 0 0 1000px transparent inset",
+                WebkitTextFillColor: "white",
+                transition: "background-color 5000s ease-in-out 0s",
+              }}
             />
             <Button
               onClick={handleSubmit}
