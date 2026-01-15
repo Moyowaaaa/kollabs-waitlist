@@ -27,39 +27,41 @@ export const metadata: Metadata = {
     "designers",
     "startup",
     "ideas",
+    "konecticus",
+    "waitlist",
   ],
-  authors: [{ name: "Koneticus" }],
+  authors: [{ name: "Konecticus" }],
   openGraph: {
     type: "website",
     url: "https://kollabs-waitlist.vercel.app/",
-    title: "Kolabs | Join the Waitlist",
+    title: "Konecticus | Join the Waitlist",
     description:
       "Where Creative Ideas Find Their Team. Connect with writers, artists, developers, and designers to bring your ideas to life.",
     siteName: "Konecticus",
     images: [
       {
-        url: "https://kollabs-waitlist.vercel.app/images/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Konecticus logo with the text 'Where Creative Ideas Find Their Team'",
+        url: "https://kollabs-waitlist.vercel.app/images/symbol-logo.png",
+        width: 512,
+        height: 512,
+        alt: "Konecticus logo - Where Creative Ideas Find Their Team",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Konecticus | Join the Waitlist",
     description:
       "Where Creative Ideas Find Their Team. Connect with writers, artists, developers, and designers to bring your ideas to life.",
-    images: ["https://kollabs-waitlist.vercel.app/images/logo.png"],
+    images: ["https://kollabs-waitlist.vercel.app/images/symbol-logo.png"],
   },
   icons: {
     icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/purple_logo.png", sizes: "any", type: "image/png" },
+      { url: "/images/purple_logo.svg", type: "image/svg+xml" },
     ],
-    apple: "/apple-touch-icon.png",
+    shortcut: "/images/symbol-logo.png",
+    apple: "/images/symbol-logo.png",
   },
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
