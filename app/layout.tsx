@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Konecticus" }],
   openGraph: {
     type: "website",
-    url: "https://kollabs-waitlist.vercel.app/",
+    url: "https://www.koneticus.com/",
     title: "Konecticus | Join the Waitlist",
     description:
       "Where Creative Ideas Find Their Team. Connect with writers, artists, developers, and designers to bring your ideas to life.",
     siteName: "Konecticus",
     images: [
       {
-        url: "https://kollabs-waitlist.vercel.app/images/symbol-logo.png",
+        url: "https://www.koneticus.com/images/symbol-logo.png",
         width: 512,
         height: 512,
         alt: "Konecticus logo - Where Creative Ideas Find Their Team",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Konecticus | Join the Waitlist",
     description:
       "Where Creative Ideas Find Their Team. Connect with writers, artists, developers, and designers to bring your ideas to life.",
-    images: ["https://kollabs-waitlist.vercel.app/images/symbol-logo.png"],
+    images: ["https://www.koneticus.com/images/symbol-logo.png"],
   },
   icons: {
     icon: [
